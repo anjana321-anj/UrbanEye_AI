@@ -1,0 +1,6 @@
+{ "indexes": [
+  {"collectionGroup":"reports","queryScope":"COLLECTION","fields":[{"fieldPath":"reporterIds","arrayConfig":"CONTAINS"},{"fieldPath":"createdAt","order":"DESCENDING"}]},
+  {"collectionGroup":"reports","queryScope":"COLLECTION","fields":[{"fieldPath":"assignedDepartment","order":"ASCENDING"},{"fieldPath":"priorityScore","order":"DESCENDING"}]},
+  {"collectionGroup":"reports","queryScope":"COLLECTION","fields":[{"fieldPath":"category","order":"ASCENDING"},{"fieldPath":"createdAt","order":"ASCENDING"}]},
+  {"collectionGroup":"reports","queryScope":"COLLECTION","fields":[{"fieldPath":"assignedAdminId","order":"ASCENDING"},{"fieldPath":"status","order":"ASCENDING"}]}
+], "fieldOverrides": [] }
