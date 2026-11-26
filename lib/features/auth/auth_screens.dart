@@ -64,22 +64,22 @@ class _PasswordFieldState extends State<PasswordField> {
   bool _obscure = true;
   @override
   Widget build(BuildContext context) => TextFormField(
-    controller: widget.controller,
-    obscureText: _obscure,
-    validator: widget.validator,
-    textInputAction: widget.action,
-    onFieldSubmitted: (_) => widget.onSubmit?.call(),
-    autofillHints: const [AutofillHints.password],
-    decoration: InputDecoration(
-      labelText: context.t(widget.label),
-      prefixIcon: const Icon(Icons.lock_outline_rounded),
-      suffixIcon: IconButton(
-        tooltip: _obscure ? 'Show password' : 'Hide password',
-        icon: Icon(_obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined),
-        onPressed: () => setState(() => _obscure = !_obscure),
-      ),
-    ),
-  );
+        controller: widget.controller,
+        obscureText: _obscure,
+        validator: widget.validator,
+        textInputAction: widget.action,
+        onFieldSubmitted: (_) => widget.onSubmit?.call(),
+        autofillHints: const [AutofillHints.password],
+        decoration: InputDecoration(
+          labelText: context.t(widget.label),
+          prefixIcon: const Icon(Icons.lock_outline_rounded),
+          suffixIcon: IconButton(
+            tooltip: _obscure ? 'Show password' : 'Hide password',
+            icon: Icon(_obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+            onPressed: () => setState(() => _obscure = !_obscure),
+          ),
+        ),
+      );
 }
 
 class _ErrorBanner extends StatelessWidget {
@@ -87,24 +87,24 @@ class _ErrorBanner extends StatelessWidget {
   const _ErrorBanner(this.error);
   @override
   Widget build(BuildContext context) => AnimatedSize(
-    duration: Motion.d(context, 250),
-    child: error == null
-        ? const SizedBox(width: double.infinity)
-        : Semantics(
-      liveRegion: true,
-      child: Container(
-        width: double.infinity,
-        margin: const EdgeInsets.only(bottom: 16),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(color: context.ue.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(AppRadii.md)),
-        child: Row(children: [
-          Icon(Icons.error_outline_rounded, color: context.ue.error, size: 20),
-          const SizedBox(width: 10),
-          Expanded(child: Text(context.t(error!), style: AppText.bodySm(context).copyWith(color: context.ue.error))),
-        ]),
-      ),
-    ),
-  );
+        duration: Motion.d(context, 250),
+        child: error == null
+            ? const SizedBox(width: double.infinity)
+            : Semantics(
+                liveRegion: true,
+                child: Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.only(bottom: 16),
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(color: context.ue.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(AppRadii.md)),
+                  child: Row(children: [
+                    Icon(Icons.error_outline_rounded, color: context.ue.error, size: 20),
+                    const SizedBox(width: 10),
+                    Expanded(child: Text(context.t(error!), style: AppText.bodySm(context).copyWith(color: context.ue.error))),
+                  ]),
+                ),
+              ),
+      );
 }
 
 class _SocialButtons extends StatelessWidget {
@@ -126,8 +126,8 @@ class _SocialButtons extends StatelessWidget {
         onPressed: auth.busy
             ? null
             : () async {
-          if (await auth.loginWith('google') && context.mounted) context.popToRoot();
-        },
+                if (await auth.loginWith('google') && context.mounted) context.popToRoot();
+              },
       ),
       const SizedBox(height: 10),
       UeButton(
@@ -137,8 +137,8 @@ class _SocialButtons extends StatelessWidget {
         onPressed: auth.busy
             ? null
             : () async {
-          if (await auth.loginWith('apple') && context.mounted) context.popToRoot();
-        },
+                if (await auth.loginWith('apple') && context.mounted) context.popToRoot();
+              },
       ),
     ]);
   }
@@ -513,10 +513,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     onPressed: _resendIn > 0
                         ? null
                         : () async {
-                      await context.read<AuthController>().sendOtp(_dest.text.trim());
-                      _startTimer();
-                      if (mounted) showToast(context, 'A new code was sent', kind: ToastKind.success);
-                    },
+                            await context.read<AuthController>().sendOtp(_dest.text.trim());
+                            _startTimer();
+                            if (mounted) showToast(context, 'A new code was sent', kind: ToastKind.success);
+                          },
                     child: Text(_resendIn > 0 ? '${context.t('Resend code in')} ${_resendIn}s' : context.t('Resend code')),
                   ),
                 ),
