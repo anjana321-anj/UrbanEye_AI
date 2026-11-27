@@ -12,7 +12,7 @@ android {
     kotlinOptions { jvmTarget = "17" }
     defaultConfig {
         applicationId = "com.urbaneye.app"
-        minSdk = 23
+        minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
