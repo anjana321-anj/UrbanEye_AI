@@ -1,5 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+import '../services/services.dart';
+>>>>>>> origin/yasif-ansari
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../core/constants/app_constants.dart';
@@ -52,10 +56,20 @@ class _AdminState extends ConsumerState<AdminDashboard> {
     final svc = ref.read(reportServiceProvider);
     final list = await svc.duplicates(r.id);
     if (!mounted) return;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/yasif-ansari
     if (list.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No duplicates found')));
       return;
     }
+<<<<<<< HEAD
+=======
+    if (list.isEmpty) return ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No duplicates found')));
+>>>>>>> origin/saksham-shrestha
+=======
+>>>>>>> origin/yasif-ansari
     final sel = <String>{};
     showDialog(context: context, builder: (_) => StatefulBuilder(builder: (c, set) => AlertDialog(
       title: const Text('Possible duplicates'),
@@ -101,7 +115,11 @@ class _AdminState extends ConsumerState<AdminDashboard> {
           return Column(children: [
             Row(children: [AdminCountCard(label: 'New', count: nNew, color: Colors.blue), AdminCountCard(label: 'In Progress', count: nProg, color: Colors.orange), AdminCountCard(label: 'Resolved', count: nDone, color: AppTheme.green)]),
             FilterBarWidget(
+<<<<<<< HEAD
               options: {'Ward': AppConstants.wards.map((w) => '$w').toList(), 'Status': AppConstants.allStatuses, 'Date': ['1 day', '7 days', '30 days'], 'Type': subOptions},
+=======
+              options: {'Ward': AppConstants.wards.map((w) => '$w').toList(), 'Status': AppConstants.allStatuses, 'Date': const ['1 day', '7 days', '30 days'], 'Type': subOptions},
+>>>>>>> origin/yasif-ansari
               values: f, onChanged: (k, v) => setState(() { if (v == null) { f.remove(k); } else { f[k] = v; } })),
             Expanded(child: list.isEmpty ? const EmptyStateWidget('No reports') : ListView(children: [
               for (final r in list) Column(children: [
@@ -179,7 +197,13 @@ class SuperAdminScreen extends ConsumerWidget {
         ]),
       );
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 class AdminService {
   static bool validEmail(String e) => e.contains('@');
 }
+=======
+>>>>>>> origin/saksham-shrestha
+=======
+>>>>>>> origin/yasif-ansari

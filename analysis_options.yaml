@@ -2,7 +2,10 @@ analyzer:
   exclude:
     - build/**
     - android/**
+<<<<<<< HEAD
     - ios/**
     - web/**
     - windows/**
+=======
+>>>>>>> origin/yasif-ansari
 include: package:flutter_lints/flutter.yaml

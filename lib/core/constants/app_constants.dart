@@ -23,7 +23,15 @@ class AppConstants {
   static const departments = ['Parking', 'Waste Management', 'Streetlight', 'Road', 'Water & Drainage', 'Illegal Construction'];
   static const statuses = ['Submitted', 'Verified', 'Assigned', 'In Progress', 'Resolved'];
   static const allStatuses = [...statuses, 'Rejected'];
+<<<<<<< HEAD
+<<<<<<< HEAD
   static final wards = List.generate(32, (i) => i + 1);
+=======
+  static const wards = [for (var i = 1; i <= 32; i++) i];
+>>>>>>> origin/saksham-shrestha
+=======
+  static final wards = List.generate(32, (i) => i + 1);
+>>>>>>> origin/yasif-ansari
   // Kathmandu Metropolitan City approximate bounding box (replace with real polygon).
   static const bounds = {'minLat': 27.64, 'maxLat': 27.78, 'minLng': 85.26, 'maxLng': 85.42};
   static const roles = ['citizen', 'field_worker', 'department_admin', 'super_admin'];

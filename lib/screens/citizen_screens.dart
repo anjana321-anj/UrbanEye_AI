@@ -128,7 +128,11 @@ class _SubmitState extends ConsumerState<SubmitReportScreen> {
     if (perm == LocationPermission.denied || perm == LocationPermission.deniedForever || !enabled) {
       if (!mounted) return;
       _setPos(const LatLng(27.7172, 85.3240)); // Kathmandu fallback; user sets pin manually
+<<<<<<< HEAD
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text('Location is off. Turn on GPS or set the pin manually.'), action: SnackBarAction(label: 'Settings', onPressed: Geolocator.openLocationSettings)));
+=======
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Location is off. Turn on GPS or set the pin manually.'), action: SnackBarAction(label: 'Settings', onPressed: Geolocator.openLocationSettings)));
+>>>>>>> origin/yasif-ansari
       return;
     }
     final p = await Geolocator.getCurrentPosition();
@@ -146,14 +150,33 @@ class _SubmitState extends ConsumerState<SubmitReportScreen> {
 
   Future<void> _submit() async {
     String? err;
+<<<<<<< HEAD
     if (_cat == null || _sub == null) err = 'Select a category and sub-category';
     else if (_cat == 'Illegal Parking' && _violation == null) err = 'Select a violation type';
     else if (_photos.isEmpty && _video == null) err = 'Add at least one photo or video';
     else if (_pos == null) err = 'Location required';
+<<<<<<< HEAD
+=======
+    if (_cat == null || _sub == null) {
+      err = 'Select a category and sub-category';
+    } else if (_cat == 'Illegal Parking' && _violation == null) {
+      err = 'Select a violation type';
+    } else if (_photos.isEmpty && _video == null) {
+      err = 'Add at least one photo or video';
+    } else if (_pos == null) {
+      err = 'Location required';
+    }
+>>>>>>> origin/yasif-ansari
     if (err != null) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(err)));
       return;
     }
+<<<<<<< HEAD
+=======
+    if (err != null) return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(err)));
+>>>>>>> origin/saksham-shrestha
+=======
+>>>>>>> origin/yasif-ansari
     setState(() => _busy = true);
     final user = ref.read(currentUserProvider).value!;
     try {
@@ -174,16 +197,28 @@ class _SubmitState extends ConsumerState<SubmitReportScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Report an issue')),
       body: ListView(padding: const EdgeInsets.all(16), children: [
+<<<<<<< HEAD
         DropdownButtonFormField<String>(value: _cat, decoration: const InputDecoration(labelText: 'Category *'),
             items: [for (final c in AppConstants.categories) DropdownMenuItem(value: c.name, child: Text(c.name))],
             onChanged: (v) => setState(() { _cat = v; _sub = null; _violation = null; })),
         const SizedBox(height: 12),
         if (cat != null) DropdownButtonFormField<String>(value: _sub, decoration: InputDecoration(labelText: _cat == 'Street Light' ? 'Fault type *' : 'Sub-category *'),
+=======
+        DropdownButtonFormField<String>(initialValue: _cat, decoration: const InputDecoration(labelText: 'Category *'),
+            items: [for (final c in AppConstants.categories) DropdownMenuItem(value: c.name, child: Text(c.name))],
+            onChanged: (v) => setState(() { _cat = v; _sub = null; _violation = null; })),
+        const SizedBox(height: 12),
+        if (cat != null) DropdownButtonFormField<String>(initialValue: _sub, decoration: InputDecoration(labelText: _cat == 'Street Light' ? 'Fault type *' : 'Sub-category *'),
+>>>>>>> origin/yasif-ansari
             items: [for (final s in cat.subs) DropdownMenuItem(value: s, child: Text(s))], onChanged: (v) => setState(() => _sub = v)),
         if (_sub == 'exposed wire') const Padding(padding: EdgeInsets.only(top: 8), child: Text('⚠ Exposed wire will be marked URGENT.', style: TextStyle(color: Colors.red))),
         if (_cat == 'Illegal Parking') ...[
           const SizedBox(height: 12),
+<<<<<<< HEAD
           DropdownButtonFormField<String>(value: _violation, decoration: const InputDecoration(labelText: 'Violation type *'),
+=======
+          DropdownButtonFormField<String>(initialValue: _violation, decoration: const InputDecoration(labelText: 'Violation type *'),
+>>>>>>> origin/yasif-ansari
               items: [for (final s in cat!.subs) DropdownMenuItem(value: s, child: Text(s))], onChanged: (v) => setState(() => _violation = v)),
           const SizedBox(height: 12),
           TextField(controller: _plate, decoration: const InputDecoration(labelText: 'Vehicle plate number')),

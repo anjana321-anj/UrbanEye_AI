@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -156,6 +157,24 @@ class AppTheme {
   static final darkTheme = build(dark: true);
   static const green = Color(0xFF3BA55D);
   static const blue = Color(0xFF2E7DD1);
+=======
+import 'package:flutter/material.dart';
+
+class AppTheme {
+  // Palette sampled from the UrbanEye logo. Adjust to match Figma tokens.
+  static const navy = Color(0xFF14306B);
+  static const blue = Color(0xFF2E7DD1);
+  static const green = Color(0xFF3BA55D);
+  static const bg = Color(0xFFF4F7FB);
+  static final light = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(seedColor: blue, primary: navy),
+    scaffoldBackgroundColor: bg,
+    appBarTheme: const AppBarTheme(backgroundColor: navy, foregroundColor: Colors.white),
+    cardTheme: CardThemeData(elevation: 1, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14))),
+    inputDecorationTheme: InputDecorationTheme(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)), filled: true, fillColor: Colors.white),
+  );
+>>>>>>> origin/yasif-ansari
   static Color statusColor(String s) => switch (s) {
         'Submitted' => Colors.grey,
         'Verified' => blue,
@@ -165,6 +184,7 @@ class AppTheme {
         'Rejected' => Colors.red,
         _ => Colors.grey,
       };
+<<<<<<< HEAD
 
   static ThemeData build({required bool dark, bool highContrast = false}) {
     var ue = dark ? UeColors.dark : UeColors.light;
@@ -289,4 +309,6 @@ class AppTheme {
           fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 0.8, color: ue.textSubtle),
     );
   }
+=======
+>>>>>>> origin/yasif-ansari
 }
