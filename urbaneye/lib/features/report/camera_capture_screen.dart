@@ -29,6 +29,10 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen> with WidgetsB
   CameraController? _ctrl;
   int _camIndex = 0;
   FlashMode _flash = FlashMode.off;
+<<<<<<< HEAD
+=======
+  bool _initializing = true;
+>>>>>>> origin/lakpa-sherpa
   bool _capturing = false;
   bool _denied = false;
   bool _failed = false;
@@ -49,6 +53,10 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen> with WidgetsB
       if (mounted) {
         setState(() {
           _denied = true;
+<<<<<<< HEAD
+=======
+          _initializing = false;
+>>>>>>> origin/lakpa-sherpa
         });
       }
       return;
@@ -63,6 +71,10 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen> with WidgetsB
       if (mounted) {
         setState(() {
           _failed = true;
+<<<<<<< HEAD
+=======
+          _initializing = false;
+>>>>>>> origin/lakpa-sherpa
         });
       }
     }
@@ -83,6 +95,10 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen> with WidgetsB
     }
     setState(() {
       _ctrl = c;
+<<<<<<< HEAD
+=======
+      _initializing = false;
+>>>>>>> origin/lakpa-sherpa
     });
   }
 
@@ -123,6 +139,10 @@ class _CameraCaptureScreenState extends State<CameraCaptureScreen> with WidgetsB
     Haptics.tap();
     setState(() {
       _camIndex = (_camIndex + 1) % _cams.length;
+<<<<<<< HEAD
+=======
+      _initializing = true;
+>>>>>>> origin/lakpa-sherpa
     });
     await _open();
   }

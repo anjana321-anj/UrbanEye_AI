@@ -47,6 +47,10 @@ class _SessionBinder extends StatelessWidget {
     context.select<AuthController, String?>((a) => a.user?.id); // rebuild on user change
     final auth = context.read<AuthController>();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+<<<<<<< HEAD
+=======
+      if (!context.mounted) return;
+>>>>>>> origin/lakpa-sherpa
       final u = auth.user;
       if (u != null && u.role.isStaff) {
         context.read<AdminController>().attach(u);
