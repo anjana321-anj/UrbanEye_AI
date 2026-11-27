@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function me() { return get(/databases/$(database)/documents/users/$(request.auth.uid)).data; }
+    function active() { return signedIn() && me().isActive == true; }
+    function role() { return me().role; }
+    function isSuper() { return active() && role() == 'super_admin'; }
+    function isDeptAdmin(dept) { return active() && role() == 'department_admin' && me().department == dept; }
+
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isSuper());
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.role == 'citizen';
+      // users may not change role/department/isActive
+      allow update: if signedIn() && request.auth.uid == uid &&
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role', 'department', 'isActive', 'assignedWards']);
+    }
+
+    match /reports/{id} {
+      allow create: if active() && request.resource.data.reporterId == request.auth.uid
+        && request.resource.data.status == 'Submitted' && request.resource.data.mediaUrls.size() >= 1;
+      allow read: if active() && (request.auth.uid in resource.data.reporterIds || isSuper()
+        || isDeptAdmin(resource.data.assignedDepartment) || resource.data.assignedWorkerId == request.auth.uid);
+      // admins & assigned workers update; anyone active may upvote (+1 only)
+      allow update: if isSuper() || isDeptAdmin(resource.data.assignedDepartment) || (active() && resource.data.assignedWorkerId == request.auth.uid)
+        || (active() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['upvotes'])
+            && request.resource.data.upvotes == resource.data.upvotes + 1);
+      match /comments/{cid} { allow read, create: if active(); }
+    }
+
+    // Sanitized mirror (no reporterId/phone/email). Written only by Cloud Functions.
+    match /public_feed/{id} { allow read: if signedIn(); allow write: if false; }
+
+    match /department_admins/{id} { allow read: if isSuper(); allow write: if false; }
+    match /notifications/{uid}/items/{nid} {
+      allow read, update: if signedIn() && request.auth.uid == uid;
+      allow create, delete: if false;
+    }
+    match /counters/{k} { allow read, write: if false; }
+    match /mail/{k} { allow read, write: if false; }
+  }
+}
