@@ -33,6 +33,20 @@ class GeoPoint {
 
   @override
   String toString() => '${lat.toStringAsFixed(5)}, ${lng.toStringAsFixed(5)}';
+<<<<<<< HEAD
+=======
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GeoPoint &&
+          runtimeType == other.runtimeType &&
+          lat == other.lat &&
+          lng == other.lng;
+
+  @override
+  int get hashCode => Object.hash(lat, lng);
+>>>>>>> origin/lakpa-sherpa
 }
 
 class PlaceLocation {
@@ -50,6 +64,22 @@ class PlaceLocation {
         area: j['area'] as String? ?? '',
         accuracyMeters: (j['accuracy'] as num?)?.toDouble(),
       );
+<<<<<<< HEAD
+=======
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PlaceLocation &&
+          runtimeType == other.runtimeType &&
+          point == other.point &&
+          address == other.address &&
+          area == other.area &&
+          accuracyMeters == other.accuracyMeters;
+
+  @override
+  int get hashCode => Object.hash(point, address, area, accuracyMeters);
+>>>>>>> origin/lakpa-sherpa
 }
 
 // ---------------------------------------------------------------------------
@@ -178,6 +208,7 @@ class Evidence {
         'after': isAfter,
       };
 
+<<<<<<< HEAD
   factory Evidence.fromJson(Map<String, dynamic> j) => Evidence(
         id: j['id'] as String,
         kind: EvidenceKind.values.byName(j['kind'] as String),
@@ -186,6 +217,24 @@ class Evidence {
         capturedAt: DateTime.parse(j['at'] as String),
         isAfter: j['after'] as bool? ?? false,
       );
+=======
+  factory Evidence.fromJson(Map<String, dynamic> j) {
+    EvidenceKind kind = EvidenceKind.photo;
+    if (j['kind'] != null) {
+      try {
+        kind = EvidenceKind.values.byName(j['kind'] as String);
+      } catch (_) {}
+    }
+    return Evidence(
+      id: j['id'] as String? ?? 'ev-0',
+      kind: kind,
+      bytes: j['bytes'] == null ? null : base64Decode(j['bytes'] as String),
+      sceneSeed: j['seed'] as int? ?? 0,
+      capturedAt: DateTime.tryParse(j['at'] as String? ?? '') ?? DateTime.now(),
+      isAfter: j['after'] as bool? ?? false,
+    );
+  }
+>>>>>>> origin/lakpa-sherpa
 }
 
 class StatusHistory {
@@ -289,6 +338,95 @@ class Report {
   String get title => subtype ?? category.label;
   String get publicCitizenName => anonymous ? 'Anonymous citizen' : citizenName;
   bool get hasOpenQuestion => comments.isNotEmpty && comments.last.isQuestion;
+<<<<<<< HEAD
+=======
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'ticket': ticket,
+        'category': category.name,
+        'subtype': subtype,
+        'description': description,
+        'severity': severity.name,
+        'status': status.name,
+        'location': location.toJson(),
+        'createdAt': createdAt.toIso8601String(),
+        'updatedAt': updatedAt.toIso8601String(),
+        'citizenId': citizenId,
+        'citizenName': citizenName,
+        'anonymous': anonymous,
+        'evidence': evidence.map((e) => e.toJson()).toList(),
+        'afterEvidence': afterEvidence.map((e) => e.toJson()).toList(),
+        'vehicle': vehicleNumber,
+        'notes': notes,
+        'supporters': supporters,
+        'ai': aiAssisted,
+        'aiConf': aiConfidence,
+        'resolutionNote': resolutionNote,
+        'resolvedAt': resolvedAt?.toIso8601String(),
+        'feedback': feedback?.name,
+        'escalated': escalated,
+        'emergency': isEmergency,
+      };
+
+  factory Report.fromJson(Map<String, dynamic> j) {
+    ReportCategory cat = ReportCategory.other;
+    if (j['category'] != null) {
+      try {
+        cat = ReportCategory.values.byName(j['category'] as String);
+      } catch (_) {}
+    }
+    Severity sev = Severity.medium;
+    if (j['severity'] != null) {
+      try {
+        sev = Severity.values.byName(j['severity'] as String);
+      } catch (_) {}
+    }
+    ReportStatus stat = ReportStatus.submitted;
+    if (j['status'] != null) {
+      try {
+        stat = ReportStatus.values.byName(j['status'] as String);
+      } catch (_) {}
+    }
+    CitizenFeedback? fb;
+    if (j['feedback'] != null) {
+      try {
+        fb = CitizenFeedback.values.byName(j['feedback'] as String);
+      } catch (_) {}
+    }
+    return Report(
+      id: j['id'] as String? ?? '',
+      ticket: j['ticket'] as String? ?? '',
+      category: cat,
+      subtype: j['subtype'] as String?,
+      description: j['description'] as String? ?? '',
+      severity: sev,
+      status: stat,
+      location: PlaceLocation.fromJson(Map<String, dynamic>.from(j['location'] as Map)),
+      createdAt: DateTime.tryParse(j['createdAt'] as String? ?? '') ?? DateTime.now(),
+      updatedAt: DateTime.tryParse(j['updatedAt'] as String? ?? '') ?? DateTime.now(),
+      citizenId: j['citizenId'] as String? ?? '',
+      citizenName: j['citizenName'] as String? ?? '',
+      anonymous: j['anonymous'] as bool? ?? false,
+      evidence: ((j['evidence'] as List?) ?? [])
+          .map((e) => Evidence.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
+      afterEvidence: ((j['afterEvidence'] as List?) ?? [])
+          .map((e) => Evidence.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
+      vehicleNumber: j['vehicle'] as String?,
+      notes: j['notes'] as String?,
+      supporters: j['supporters'] as int? ?? 0,
+      aiAssisted: j['ai'] as bool? ?? false,
+      aiConfidence: (j['aiConf'] as num?)?.toDouble(),
+      resolutionNote: j['resolutionNote'] as String?,
+      resolvedAt: DateTime.tryParse(j['resolvedAt'] as String? ?? ''),
+      feedback: fb,
+      escalated: j['escalated'] as bool? ?? false,
+      isEmergency: j['emergency'] as bool? ?? false,
+    );
+  }
+>>>>>>> origin/lakpa-sherpa
 }
 
 /// What the citizen builds in the report flow before submitting.
@@ -345,6 +483,7 @@ class ReportDraft {
         'createdAt': createdAt.toIso8601String(),
       };
 
+<<<<<<< HEAD
   factory ReportDraft.fromJson(Map<String, dynamic> j) => ReportDraft(
         localId: j['localId'] as String,
         category: j['category'] == null ? null : ReportCategory.values.byName(j['category'] as String),
@@ -363,6 +502,40 @@ class ReportDraft {
         aiConfidence: (j['aiConf'] as num?)?.toDouble(),
         createdAt: DateTime.tryParse(j['createdAt'] as String? ?? '') ?? DateTime.now(),
       );
+=======
+  factory ReportDraft.fromJson(Map<String, dynamic> j) {
+    ReportCategory? cat;
+    if (j['category'] != null) {
+      try {
+        cat = ReportCategory.values.byName(j['category'] as String);
+      } catch (_) {}
+    }
+    Severity sev = Severity.medium;
+    if (j['severity'] != null) {
+      try {
+        sev = Severity.values.byName(j['severity'] as String);
+      } catch (_) {}
+    }
+    return ReportDraft(
+      localId: j['localId'] as String? ?? 'draft-${DateTime.now().microsecondsSinceEpoch}',
+      category: cat,
+      subtype: j['subtype'] as String?,
+      evidence: ((j['evidence'] as List?) ?? [])
+          .map((e) => Evidence.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList(),
+      location: j['location'] == null ? null : PlaceLocation.fromJson(Map<String, dynamic>.from(j['location'] as Map)),
+      description: j['description'] as String? ?? '',
+      severity: sev,
+      vehicleNumber: j['vehicle'] as String?,
+      notes: j['notes'] as String?,
+      anonymous: j['anonymous'] as bool? ?? false,
+      isEmergency: j['emergency'] as bool? ?? false,
+      aiAssisted: j['ai'] as bool? ?? false,
+      aiConfidence: (j['aiConf'] as num?)?.toDouble(),
+      createdAt: DateTime.tryParse(j['createdAt'] as String? ?? '') ?? DateTime.now(),
+    );
+  }
+>>>>>>> origin/lakpa-sherpa
 }
 
 class NearbyMatch {

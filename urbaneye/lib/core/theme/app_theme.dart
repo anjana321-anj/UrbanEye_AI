@@ -241,7 +241,11 @@ class AppTheme {
         trackColor: WidgetStateProperty.resolveWith(
             (s) => s.contains(WidgetState.selected) ? ue.secondary : null),
       ),
+<<<<<<< HEAD
       pageTransitionsTheme: PageTransitionsTheme(builders: {
+=======
+      pageTransitionsTheme: const PageTransitionsTheme(builders: {
+>>>>>>> origin/lakpa-sherpa
         TargetPlatform.android: CupertinoPageTransitionsBuilder(),
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
       }),
