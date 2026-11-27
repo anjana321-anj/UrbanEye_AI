@@ -150,10 +150,14 @@ class _SubmitState extends ConsumerState<SubmitReportScreen> {
     else if (_cat == 'Illegal Parking' && _violation == null) err = 'Select a violation type';
     else if (_photos.isEmpty && _video == null) err = 'Add at least one photo or video';
     else if (_pos == null) err = 'Location required';
+<<<<<<< HEAD
     if (err != null) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(err)));
       return;
     }
+=======
+    if (err != null) return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(err)));
+>>>>>>> origin/saksham-shrestha
     setState(() => _busy = true);
     final user = ref.read(currentUserProvider).value!;
     try {

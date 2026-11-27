@@ -52,10 +52,14 @@ class _AdminState extends ConsumerState<AdminDashboard> {
     final svc = ref.read(reportServiceProvider);
     final list = await svc.duplicates(r.id);
     if (!mounted) return;
+<<<<<<< HEAD
     if (list.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No duplicates found')));
       return;
     }
+=======
+    if (list.isEmpty) return ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No duplicates found')));
+>>>>>>> origin/saksham-shrestha
     final sel = <String>{};
     showDialog(context: context, builder: (_) => StatefulBuilder(builder: (c, set) => AlertDialog(
       title: const Text('Possible duplicates'),
@@ -179,7 +183,10 @@ class SuperAdminScreen extends ConsumerWidget {
         ]),
       );
 }
+<<<<<<< HEAD
 
 class AdminService {
   static bool validEmail(String e) => e.contains('@');
 }
+=======
+>>>>>>> origin/saksham-shrestha
