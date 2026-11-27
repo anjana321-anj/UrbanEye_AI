@@ -93,7 +93,11 @@ class LocationService {
 }
 
 class ReportService {
+<<<<<<< HEAD
   CollectionReference<Map<String, dynamic>> get _col => _db.collection('reports');
+=======
+  Query<Map<String, dynamic>> get _col => _db.collection('reports');
+>>>>>>> origin/saksham-shrestha
 
   Future<File> compress(File f) async {
     final dir = await getTemporaryDirectory();
