@@ -7,7 +7,11 @@ class AdminCountCard extends StatelessWidget {
   const AdminCountCard({super.key, required this.label, required this.count, required this.color});
   @override
   Widget build(BuildContext context) => Expanded(
+<<<<<<< HEAD
         child: Card(color: color.withOpacity(.12), child: Padding(padding: const EdgeInsets.all(14), child: Column(children: [
+=======
+        child: Card(color: color.withValues(alpha: .12), child: Padding(padding: const EdgeInsets.all(14), child: Column(children: [
+>>>>>>> origin/yasif-ansari
           Text('$count', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: color)),
           Text(label, style: const TextStyle(fontSize: 12)),
         ]))),

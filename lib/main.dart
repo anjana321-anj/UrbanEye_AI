@@ -23,12 +23,16 @@ class UrbanEyeApp extends ConsumerWidget {
   const UrbanEyeApp({super.key});
   @override
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/yasif-ansari
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
     // US-63: tapping a push opens the report.
     FirebaseMessaging.onMessageOpenedApp.listen((m) {
       final id = m.data['reportId'];
       if (id != null) router.push('/report/$id');
+<<<<<<< HEAD
     });
     return MaterialApp.router(title: 'UrbanEye', theme: AppTheme.light, routerConfig: router, debugShowCheckedModeBanner: false);
 =======
@@ -142,5 +146,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
 >>>>>>> origin/saksham-shrestha
+=======
+    });
+    return MaterialApp.router(title: 'UrbanEye', theme: AppTheme.light, routerConfig: router, debugShowCheckedModeBanner: false);
+>>>>>>> origin/yasif-ansari
   }
 }
