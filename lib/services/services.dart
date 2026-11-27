@@ -80,20 +80,36 @@ class LocationService {
 
   /// PLACEHOLDER ward lookup: replace with polygon lookup from municipal GIS data.
   static int wardFor(double lat, double lng) {
+<<<<<<< HEAD
     final b = AppConstants.bounds;
+=======
+    const b = AppConstants.bounds;
+>>>>>>> origin/yasif-ansari
     final col = ((lng - b['minLng']!) / (b['maxLng']! - b['minLng']!) * 8).clamp(0, 7.99).floor();
     final row = ((lat - b['minLat']!) / (b['maxLat']! - b['minLat']!) * 4).clamp(0, 3.99).floor();
     return row * 8 + col + 1;
   }
 
   static bool insideMunicipality(double lat, double lng) {
+<<<<<<< HEAD
     final b = AppConstants.bounds;
+=======
+    const b = AppConstants.bounds;
+>>>>>>> origin/yasif-ansari
     return lat >= b['minLat']! && lat <= b['maxLat']! && lng >= b['minLng']! && lng <= b['maxLng']!;
   }
 }
 
 class ReportService {
+<<<<<<< HEAD
+<<<<<<< HEAD
   CollectionReference<Map<String, dynamic>> get _col => _db.collection('reports');
+=======
+  Query<Map<String, dynamic>> get _col => _db.collection('reports');
+>>>>>>> origin/saksham-shrestha
+=======
+  CollectionReference<Map<String, dynamic>> get _col => _db.collection('reports');
+>>>>>>> origin/yasif-ansari
 
   Future<File> compress(File f) async {
     final dir = await getTemporaryDirectory();

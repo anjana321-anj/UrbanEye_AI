@@ -1,6 +1,24 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/yasif-ansari
 .dart_tool/
 build/
 android/local.properties
 android/.gradle/
 node_modules/
 .idea/
+<<<<<<< HEAD
+=======
+﻿**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+.idea/
+*.iml
+local.properties
+.DS_Store
+>>>>>>> origin/Reshma-Bhurtel
+=======
+>>>>>>> origin/yasif-ansari
