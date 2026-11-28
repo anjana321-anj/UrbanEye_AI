@@ -1,0 +1,162 @@
+/// Nepali (नेपाली) translations. Keys are the English source strings.
+/// Strings not listed here fall back to English automatically.
+const Map<String, String> neStrings = {
+  // Brand
+  'See It. Report It. Fix It.': 'देख्नुहोस्। रिपोर्ट गर्नुहोस्। समाधान गर्नुहोस्।',
+  'Every citizen can be the eyes of the city.': 'हरेक नागरिक शहरको आँखा बन्न सक्छन्।',
+
+  // Onboarding
+  'Make Your City Better.': 'आफ्नो शहरलाई अझ राम्रो बनाउनुहोस्।',
+  'Report problems around you and help your municipality build a cleaner, safer and smarter city.':
+      'आफ्नो वरपरका समस्या रिपोर्ट गर्नुहोस् र नगरपालिकालाई सफा, सुरक्षित र स्मार्ट शहर बनाउन सहयोग गर्नुहोस्।',
+  'Report With One Tap.': 'एक ट्यापमा रिपोर्ट गर्नुहोस्।',
+  'Capture a photo, share your location and send a report directly to the municipality.':
+      'फोटो खिच्नुहोस्, स्थान साझा गर्नुहोस् र सिधै नगरपालिकालाई रिपोर्ट पठाउनुहोस्।',
+  'Track Every Report.': 'हरेक रिपोर्ट ट्र्याक गर्नुहोस्।',
+  'Stay updated from the moment you report a problem until it is resolved.':
+      'समस्या रिपोर्ट गरेदेखि समाधान नभएसम्म अपडेट रहनुहोस्।',
+  'Get Started': 'सुरु गर्नुहोस्',
+  'Skip': 'छोड्नुहोस्',
+  'Next': 'अर्को',
+  'Back': 'पछाडि',
+  'Continue': 'जारी राख्नुहोस्',
+  'Cancel': 'रद्द गर्नुहोस्',
+  'Done': 'सम्पन्न',
+  'Retry': 'पुनः प्रयास',
+  'Try Again': 'फेरि प्रयास गर्नुहोस्',
+  'Save': 'सुरक्षित गर्नुहोस्',
+  'Edit': 'सम्पादन',
+  'Remove': 'हटाउनुहोस्',
+  'Close': 'बन्द गर्नुहोस्',
+
+  // Auth
+  'Welcome back': 'फेरि स्वागत छ',
+  'Sign in to continue making your city better.': 'शहर सुधार्न जारी राख्न साइन इन गर्नुहोस्।',
+  'Phone or Email': 'फोन वा इमेल',
+  'Password': 'पासवर्ड',
+  'Forgot Password?': 'पासवर्ड बिर्सनुभयो?',
+  'Login': 'लगइन',
+  'Continue with Google': 'Google मार्फत जारी राख्नुहोस्',
+  'Continue with Apple': 'Apple मार्फत जारी राख्नुहोस्',
+  'Sign Up': 'साइन अप',
+  'Create account': 'खाता बनाउनुहोस्',
+  'Full Name': 'पूरा नाम',
+  'Phone': 'फोन',
+  'Email': 'इमेल',
+  'Confirm Password': 'पासवर्ड पुष्टि गर्नुहोस्',
+  "Don't have an account?": 'खाता छैन?',
+  'Already have an account?': 'पहिले नै खाता छ?',
+  'Municipality staff? Open Admin Console': 'नगरपालिका कर्मचारी? एडमिन कन्सोल खोल्नुहोस्',
+
+  // Home
+  'Good Morning, {name}': 'शुभ प्रभात, {name}',
+  'Good Afternoon, {name}': 'शुभ दिउँसो, {name}',
+  'Good Evening, {name}': 'शुभ साँझ, {name}',
+  'Help make your city better today.': 'आज आफ्नो शहरलाई राम्रो बनाउन सहयोग गर्नुहोस्।',
+  'Current Location': 'हालको स्थान',
+  'Report a City Issue': 'शहरको समस्या रिपोर्ट गर्नुहोस्',
+  'Photo, location and details in under a minute': 'एक मिनेटभित्र फोटो, स्थान र विवरण',
+  'Quick Actions': 'छिटो कार्यहरू',
+  'Your City Today': 'आज तपाईंको शहर',
+  'Reports Resolved': 'समाधान भएका रिपोर्ट',
+  'Resolution Rate': 'समाधान दर',
+  'Issues Reported': 'रिपोर्ट गरिएका समस्या',
+  'Waste Pickups': 'फोहोर संकलन',
+  'Active Maintenance': 'सक्रिय मर्मत',
+  'Recent Activity': 'हालैका गतिविधि',
+  'See all': 'सबै हेर्नुहोस्',
+
+  // Tabs
+  'Home': 'गृह',
+  'Report': 'रिपोर्ट',
+  'Map': 'नक्सा',
+  'My Reports': 'मेरा रिपोर्ट',
+  'Profile': 'प्रोफाइल',
+
+  // Categories
+  'Waste': 'फोहोर',
+  'Waste Management': 'फोहोर व्यवस्थापन',
+  'Illegal Parking': 'अवैध पार्किङ',
+  'Water Leakage': 'पानी चुहावट',
+  'Streetlight': 'सडक बत्ती',
+  'Infrastructure': 'पूर्वाधार',
+  'Road Condition': 'सडकको अवस्था',
+  'Other': 'अन्य',
+
+  // Status
+  'Draft': 'मस्यौदा',
+  'Submitted': 'पेश गरिएको',
+  'Under Review': 'समीक्षामा',
+  'Verified': 'प्रमाणित',
+  'Rejected': 'अस्वीकृत',
+  'Assigned': 'जिम्मा दिइएको',
+  'In Progress': 'प्रगतिमा',
+  'On The Way': 'बाटोमा',
+  'Resolved': 'समाधान भयो',
+  'Reopened': 'पुनः खोलियो',
+  'Closed': 'बन्द',
+  'Pending': 'बाँकी',
+  'All': 'सबै',
+
+  // Severity
+  'Severity': 'गम्भीरता',
+  'Low': 'न्यून',
+  'Medium': 'मध्यम',
+  'High': 'उच्च',
+  'Critical': 'गम्भीर',
+
+  // Report flow
+  'Capture Evidence': 'प्रमाण संकलन',
+  'Confirm Location': 'स्थान पुष्टि गर्नुहोस्',
+  'Add Details': 'विवरण थप्नुहोस्',
+  'Review': 'समीक्षा',
+  'Take Photo': 'फोटो खिच्नुहोस्',
+  'Upload Photo': 'फोटो अपलोड गर्नुहोस्',
+  'Description': 'विवरण',
+  'Submit Report': 'रिपोर्ट पेश गर्नुहोस्',
+  'Report Submitted Successfully': 'रिपोर्ट सफलतापूर्वक पेश भयो',
+  'Track Report': 'रिपोर्ट ट्र्याक गर्नुहोस्',
+  'Back to Home': 'गृहमा फर्कनुहोस्',
+  'Use Current Location': 'हालको स्थान प्रयोग गर्नुहोस्',
+  'Search Location': 'स्थान खोज्नुहोस्',
+  'Support Existing Report': 'अवस्थित रिपोर्टलाई समर्थन गर्नुहोस्',
+  'Submit New Report': 'नयाँ रिपोर्ट पेश गर्नुहोस्',
+  'Save as Draft': 'मस्यौदाको रूपमा सुरक्षित गर्नुहोस्',
+  'Waiting for connection': 'जडानको प्रतीक्षा गर्दै',
+
+  // Waste
+  'What type of waste is it?': 'यो कुन प्रकारको फोहोर हो?',
+  'Analyzing your waste...': 'तपाईंको फोहोर विश्लेषण गर्दै...',
+  'Organic Waste': 'जैविक फोहोर',
+  'Non-Organic Waste': 'अजैविक फोहोर',
+  'Request Waste Pickup': 'फोहोर संकलन अनुरोध',
+  'Request Pickup': 'संकलन अनुरोध गर्नुहोस्',
+  'Pickup Request Submitted': 'संकलन अनुरोध पेश भयो',
+  'Nearby Water Collection Points': 'नजिकका पानी संकलन बिन्दुहरू',
+  'Get Directions': 'दिशा प्राप्त गर्नुहोस्',
+  'Waste Collection Truck': 'फोहोर संकलन ट्रक',
+
+  // Notifications / profile
+  'Notifications': 'सूचनाहरू',
+  'Mark all read': 'सबै पढिएको चिन्ह लगाउनुहोस्',
+  'Settings': 'सेटिङहरू',
+  'Saved Locations': 'सुरक्षित स्थानहरू',
+  'Help & Support': 'सहायता र समर्थन',
+  'Privacy': 'गोपनीयता',
+  'Logout': 'लगआउट',
+  'Reports Submitted': 'पेश गरिएका रिपोर्ट',
+  'Contribution Score': 'योगदान अंक',
+  'Language': 'भाषा',
+  'Dark Mode': 'डार्क मोड',
+  'Appearance': 'रूप',
+
+  // Consent
+  'Terms, Privacy & Permissions': 'सर्त, गोपनीयता र अनुमतिहरू',
+  'Accept & Continue': 'स्वीकार गरी जारी राख्नुहोस्',
+  'Camera': 'क्यामेरा',
+  'Location': 'स्थान',
+  'Photos & Videos': 'फोटो र भिडियो',
+  'Microphone': 'माइक्रोफोन',
+  'UrbanEye is not an emergency service. In an emergency call 100 (Police), 101 (Fire) or 102 (Ambulance).':
+      'UrbanEye आपतकालीन सेवा होइन। आपतकालमा १०० (प्रहरी), १०१ (दमकल) वा १०२ (एम्बुलेन्स) मा फोन गर्नुहोस्।',
+};
